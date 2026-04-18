@@ -34,36 +34,41 @@ function BlogPage() {
       </section>
 
       <section className="container-luxe pb-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {posts.map((p, i) => (
-            <article
+            <Link
               key={p.slug}
-              className="group p-8 rounded-2xl bg-card border border-border hover-lift relative overflow-hidden flex flex-col animate-fade-up"
+              to="/blog/$slug"
+              params={{ slug: p.slug }}
+              className="group flex flex-col animate-fade-up"
               style={{ animationDelay: `${i * 0.05}s` }}
             >
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{ background: "var(--gradient-radial-gold)" }}
-              />
-              <div className="relative flex flex-col h-full">
-                <span className="text-xs text-muted-foreground mb-5 tracking-wider">
-                  {p.readTime}
-                </span>
-                <h3 className="text-2xl font-display leading-snug mb-4 group-hover:text-primary transition-colors">
-                  {p.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-8 flex-1">
-                  {p.excerpt}
-                </p>
-                <Link
-                  to="/blog/$slug"
-                  params={{ slug: p.slug }}
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary group-hover:gap-3 transition-all self-start border-b border-primary/40 pb-1"
-                >
-                  Read More <ArrowRight size={14} />
-                </Link>
+              <div className="relative aspect-video overflow-hidden rounded-2xl border border-border mb-6">
+                <img
+                  src={p.cover}
+                  alt={p.title}
+                  loading="lazy"
+                  width={1280}
+                  height={720}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ background: "var(--gradient-radial-gold)" }}
+                />
               </div>
-            </article>
+
+              <h3 className="text-2xl font-display leading-snug mb-3 group-hover:text-primary transition-colors">
+                {p.title}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5 line-clamp-3">
+                {p.excerpt}
+              </p>
+              <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary group-hover:gap-3 transition-all self-start border-b border-primary/40 pb-1">
+                Read More <ArrowRight size={14} />
+              </span>
+            </Link>
           ))}
         </div>
       </section>
