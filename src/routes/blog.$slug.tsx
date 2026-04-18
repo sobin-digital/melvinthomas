@@ -66,7 +66,7 @@ function BlogDetail() {
         <div className="gold-divider my-12" />
 
         <div className="space-y-7 text-base md:text-lg text-foreground/85 leading-[1.85]">
-          {post.content.map((para, i) => (
+          {post.content.map((para: string, i: number) => (
             <p key={i}>{para}</p>
           ))}
         </div>
