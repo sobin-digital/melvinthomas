@@ -36,11 +36,11 @@ export const Route = createFileRoute("/blog/$slug")({
 
 function BlogDetail() {
   const { post } = Route.useLoaderData();
-  const related = posts.filter((p) => p.slug !== post.slug && p.category === post.category).slice(0, 2);
+  const related = posts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
   return (
     <>
-      <article className="pt-32 pb-16 container-luxe max-w-3xl">
+      <article className="pt-32 pb-16 container-luxe max-w-4xl">
         <Link
           to="/blog"
           className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-primary mb-10"
@@ -48,10 +48,18 @@ function BlogDetail() {
           <ArrowLeft size={14} /> All Essays
         </Link>
 
+        <div className="relative aspect-video overflow-hidden rounded-2xl border border-border mb-10">
+          <img
+            src={post.cover}
+            alt={post.title}
+            width={1280}
+            height={720}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+        </div>
+
         <div className="flex items-center gap-3 mb-6">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-primary px-3 py-1 border border-primary/40 rounded-full">
-            {post.category}
-          </span>
           <span className="text-xs text-muted-foreground">{post.readTime} · {post.date}</span>
         </div>
 
@@ -97,11 +105,22 @@ function BlogDetail() {
                 key={p.slug}
                 to="/blog/$slug"
                 params={{ slug: p.slug }}
-                className="p-6 rounded-2xl bg-card border border-border hover-lift block"
+                className="rounded-2xl bg-card border border-border hover-lift block overflow-hidden group"
               >
-                <p className="text-[10px] uppercase tracking-[0.3em] text-primary mb-3">{p.category}</p>
-                <h4 className="text-xl font-display mb-2">{p.title}</h4>
-                <p className="text-sm text-muted-foreground">{p.excerpt}</p>
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={p.cover}
+                    alt={p.title}
+                    loading="lazy"
+                    width={1280}
+                    height={720}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h4 className="text-xl font-display mb-2 group-hover:text-primary transition-colors">{p.title}</h4>
+                  <p className="text-sm text-muted-foreground line-clamp-2">{p.excerpt}</p>
+                </div>
               </Link>
             ))}
           </div>

@@ -1,3 +1,13 @@
+import luxuryBus from "../assets/blog/luxury-bus.jpg";
+import transportCompanies from "../assets/blog/transport-companies.jpg";
+import minibusRental from "../assets/blog/minibus-rental.jpg";
+import carRental from "../assets/blog/car-rental.jpg";
+import desertSafari from "../assets/blog/desert-safari.jpg";
+import onlineClass from "../assets/blog/online-class.jpg";
+import physicsTutor from "../assets/blog/physics-tutor.jpg";
+import mathsTuition from "../assets/blog/maths-tuition.jpg";
+import frenchCourse from "../assets/blog/french-course.jpg";
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -5,12 +15,14 @@ export interface BlogPost {
   excerpt: string;
   readTime: string;
   date: string;
+  cover: string;
   content: string[];
 }
 
 export const posts: BlogPost[] = [
   {
     slug: "luxury-bus-rental-dubai-guide",
+    cover: luxuryBus,
     title: "The Definitive Guide to Luxury Bus Rental in Dubai",
     category: "Awareness",
     readTime: "7 min read",
@@ -32,6 +44,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "transportation-companies-dubai-evaluation",
+    cover: transportCompanies,
     title: "How to Evaluate Transportation Companies in Dubai",
     category: "Educational",
     readTime: "8 min read",
@@ -54,6 +67,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "car-rental-dubai-business-traveler",
+    cover: carRental,
     title: "Car Rental Dubai: A Business Traveller's Playbook",
     category: "Educational",
     readTime: "6 min read",
@@ -75,6 +89,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "desert-safari-dubai-corporate",
+    cover: desertSafari,
     title: "Desert Safari Dubai: The Corporate Retreat You Are Underusing",
     category: "Awareness",
     readTime: "6 min read",
@@ -96,6 +111,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "online-class-dubai-future-learning",
+    cover: onlineClass,
     title: "Online Class Dubai: The Quiet Revolution in How Children Learn",
     category: "Educational",
     readTime: "7 min read",
@@ -118,6 +134,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "online-physics-tutor-choosing",
+    cover: physicsTutor,
     title: "Choosing an Online Physics Tutor That Actually Moves Grades",
     category: "Educational",
     readTime: "6 min read",
@@ -139,6 +156,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "maths-tuition-online-foundation",
+    cover: mathsTuition,
     title: "Maths Tuition Online: Building a Foundation That Survives University",
     category: "Educational",
     readTime: "6 min read",
@@ -160,6 +178,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "online-french-course-adult-learner",
+    cover: frenchCourse,
     title: "The Online French Course: A Realistic Path for the Adult Learner",
     category: "Motivational",
     readTime: "6 min read",
@@ -181,6 +200,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "english-tuition-online-confidence",
+    cover: minibusRental,
     title: "English Tuition Online and the Forgotten Skill of Confidence",
     category: "Motivational",
     readTime: "6 min read",
