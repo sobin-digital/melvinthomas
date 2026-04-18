@@ -105,11 +105,22 @@ function BlogDetail() {
                 key={p.slug}
                 to="/blog/$slug"
                 params={{ slug: p.slug }}
-                className="p-6 rounded-2xl bg-card border border-border hover-lift block"
+                className="rounded-2xl bg-card border border-border hover-lift block overflow-hidden group"
               >
-                <p className="text-[10px] uppercase tracking-[0.3em] text-primary mb-3">{p.category}</p>
-                <h4 className="text-xl font-display mb-2">{p.title}</h4>
-                <p className="text-sm text-muted-foreground">{p.excerpt}</p>
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={p.cover}
+                    alt={p.title}
+                    loading="lazy"
+                    width={1280}
+                    height={720}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h4 className="text-xl font-display mb-2 group-hover:text-primary transition-colors">{p.title}</h4>
+                  <p className="text-sm text-muted-foreground line-clamp-2">{p.excerpt}</p>
+                </div>
               </Link>
             ))}
           </div>
