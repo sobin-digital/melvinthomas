@@ -1,3 +1,13 @@
+import luxuryBus from "../assets/blog/luxury-bus.jpg";
+import transportCompanies from "../assets/blog/transport-companies.jpg";
+import minibusRental from "../assets/blog/minibus-rental.jpg";
+import carRental from "../assets/blog/car-rental.jpg";
+import desertSafari from "../assets/blog/desert-safari.jpg";
+import onlineClass from "../assets/blog/online-class.jpg";
+import physicsTutor from "../assets/blog/physics-tutor.jpg";
+import mathsTuition from "../assets/blog/maths-tuition.jpg";
+import frenchCourse from "../assets/blog/french-course.jpg";
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -5,6 +15,7 @@ export interface BlogPost {
   excerpt: string;
   readTime: string;
   date: string;
+  cover: string;
   content: string[];
 }
 
