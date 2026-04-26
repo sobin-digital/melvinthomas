@@ -17,7 +17,14 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Book a consultation or message Melvin directly.",
       },
+      { property: "og:url", content: "https://www.melvinthomas.com/contact" },
+      { name: "twitter:title", content: "Contact Melvin Thomas" },
+      {
+        name: "twitter:description",
+        content: "Book a consultation or message Melvin directly.",
+      },
     ],
+    links: [{ rel: "canonical", href: "https://www.melvinthomas.com/contact" }],
   }),
   component: ContactPage,
 });
