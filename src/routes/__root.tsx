@@ -32,14 +32,14 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Melvin Thomas — Dubai Entrepreneur, Investor & Founder" },
+      { title: "Melvin Thomas | Entrepreneur in Dubai | Transport & Educatio" },
       {
         name: "description",
         content:
           "Melvin Thomas is a Dubai-based entrepreneur building businesses in transportation and education. Discover his story, ventures and insights.",
       },
       { name: "author", content: "Melvin Thomas" },
-      { property: "og:title", content: "Melvin Thomas — Dubai Entrepreneur, Investor & Founder" },
+      { property: "og:title", content: "Melvin Thomas | Entrepreneur in Dubai | Transport & Educatio" },
       {
         property: "og:description",
         content:
@@ -47,12 +47,12 @@ export const Route = createRootRoute({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Melvin Thomas — Dubai Entrepreneur, Investor & Founder" },
-      { name: "description", content: "Luxury personal brand website for Dubai entrepreneur Melvin Thomas, showcasing his vision and ventures." },
-      { property: "og:description", content: "Luxury personal brand website for Dubai entrepreneur Melvin Thomas, showcasing his vision and ventures." },
-      { name: "twitter:description", content: "Luxury personal brand website for Dubai entrepreneur Melvin Thomas, showcasing his vision and ventures." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/699a721a-070b-423f-8f2a-eebee1e8d7ae/id-preview-525046c7--425444c9-96e1-4e5d-b5e2-ad648f1338c7.lovable.app-1776546786234.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/699a721a-070b-423f-8f2a-eebee1e8d7ae/id-preview-525046c7--425444c9-96e1-4e5d-b5e2-ad648f1338c7.lovable.app-1776546786234.png" },
+      { name: "twitter:title", content: "Melvin Thomas | Entrepreneur in Dubai | Transport & Educatio" },
+      { name: "description", content: "Melvin Thomas is a Dubai-based entrepreneur and co-founder of Concord Transport, founder of Sanika Academy, delivering premium transport solutions and online ed" },
+      { property: "og:description", content: "Melvin Thomas is a Dubai-based entrepreneur and co-founder of Concord Transport, founder of Sanika Academy, delivering premium transport solutions and online ed" },
+      { name: "twitter:description", content: "Melvin Thomas is a Dubai-based entrepreneur and co-founder of Concord Transport, founder of Sanika Academy, delivering premium transport solutions and online ed" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/8e3ea67b-5be7-456c-80b0-e77a633d6465" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/8e3ea67b-5be7-456c-80b0-e77a633d6465" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
