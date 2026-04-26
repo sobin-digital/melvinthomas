@@ -28,13 +28,13 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="container-luxe flex items-center justify-between h-20">
-        <Link to="/" className="flex items-center gap-3 group">
-          <span className="font-display text-2xl tracking-wider">
+      <nav className="container-luxe flex items-center justify-between gap-4 h-20">
+        <Link to="/" className="flex items-center gap-2 sm:gap-3 group min-w-0 flex-shrink">
+          <span className="font-display text-xl sm:text-2xl tracking-wider whitespace-nowrap">
             <span className="text-gradient-gold">M</span>
             <span className="text-foreground">T</span>
           </span>
-          <span className="hidden sm:block text-xs uppercase tracking-[0.3em] text-muted-foreground border-l border-border pl-3">
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground border-l border-border pl-2 sm:pl-3 whitespace-nowrap">
             Melvin Thomas
           </span>
         </Link>
