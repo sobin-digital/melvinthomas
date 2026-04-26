@@ -32,27 +32,20 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Melvin Thomas | Entrepreneur in Dubai | Transport & Educatio" },
-      {
-        name: "description",
-        content:
-          "Melvin Thomas is a Dubai-based entrepreneur building businesses in transportation and education. Discover his story, ventures and insights.",
-      },
+      { name: "theme-color", content: "#000000" },
+      { name: "robots", content: "index, follow" },
       { name: "author", content: "Melvin Thomas" },
-      { property: "og:title", content: "Melvin Thomas | Entrepreneur in Dubai | Transport & Educatio" },
       {
-        property: "og:description",
+        name: "keywords",
         content:
-          "Building businesses that move people and shape futures — from Dubai to the world.",
+          "Melvin Thomas, entrepreneur Dubai, transportation companies in Dubai, bus rental Dubai, luxury bus rental Dubai, minibus rental Dubai, car rental Dubai, desert safari Dubai, online class Dubai, online tutoring Dubai, maths tuition online, online physics tutor, english tuition online, french class online",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Melvin Thomas" },
+      { property: "og:url", content: "https://www.melvinthomas.com" },
+      { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Melvin Thomas | Entrepreneur in Dubai | Transport & Educatio" },
-      { name: "description", content: "Melvin Thomas is a Dubai-based entrepreneur and co-founder of Concord Transport, founder of Sanika Academy, delivering premium transport solutions and online ed" },
-      { property: "og:description", content: "Melvin Thomas is a Dubai-based entrepreneur and co-founder of Concord Transport, founder of Sanika Academy, delivering premium transport solutions and online ed" },
-      { name: "twitter:description", content: "Melvin Thomas is a Dubai-based entrepreneur and co-founder of Concord Transport, founder of Sanika Academy, delivering premium transport solutions and online ed" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/8e3ea67b-5be7-456c-80b0-e77a633d6465" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/8e3ea67b-5be7-456c-80b0-e77a633d6465" },
+      { name: "twitter:site", content: "@melvinthomas" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

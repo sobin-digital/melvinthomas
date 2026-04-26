@@ -7,16 +7,49 @@ import { SectionHeading } from "../components/SectionHeading";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Melvin Thomas — Dubai Entrepreneur Building Businesses That Move People" },
+      { title: "Melvin Thomas | Entrepreneur in Dubai | Transport & Education Leader" },
       {
         name: "description",
         content:
-          "Dubai-based entrepreneur Melvin Thomas builds ventures in transportation and education. Book a consultation or connect on WhatsApp.",
+          "Melvin Thomas is a Dubai-based entrepreneur and co-founder of Concord Transport and founder of Sanika Academy, offering premium bus rental Dubai, car rental Dubai, and online tutoring Dubai services. Connect for business, partnerships, and investment opportunities.",
       },
-      { property: "og:title", content: "Melvin Thomas — Dubai Entrepreneur" },
+      { property: "og:title", content: "Melvin Thomas | Entrepreneur & Business Leader in Dubai" },
       {
         property: "og:description",
-        content: "Building businesses that move people and shape futures.",
+        content:
+          "Discover Melvin Thomas's journey in building successful transportation and education businesses in Dubai. Explore services, insights, and opportunities.",
+      },
+      { property: "og:image", content: "https://www.melvinthomas.com/og-image.jpg" },
+      { property: "og:url", content: "https://www.melvinthomas.com" },
+      { name: "twitter:title", content: "Melvin Thomas | Entrepreneur in Dubai" },
+      {
+        name: "twitter:description",
+        content:
+          "Dubai-based entrepreneur leading transport and education businesses. Connect for services and partnerships.",
+      },
+      { name: "twitter:image", content: "https://www.melvinthomas.com/og-image.jpg" },
+    ],
+    links: [{ rel: "canonical", href: "https://www.melvinthomas.com" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Melvin Thomas",
+          jobTitle: "Entrepreneur",
+          url: "https://www.melvinthomas.com",
+          worksFor: {
+            "@type": "Organization",
+            name: "The Concord Passengers Transporting L.L.C",
+          },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Dubai",
+            addressCountry: "AE",
+          },
+          sameAs: ["#", "#", "#"],
+        }),
       },
     ],
   }),

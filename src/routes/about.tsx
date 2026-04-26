@@ -18,7 +18,14 @@ export const Route = createFileRoute("/about")({
         property: "og:description",
         content: "Self-made entrepreneur. Builder of institutions. Based in Dubai.",
       },
+      { property: "og:url", content: "https://www.melvinthomas.com/about" },
+      { name: "twitter:title", content: "About Melvin Thomas" },
+      {
+        name: "twitter:description",
+        content: "Self-made entrepreneur. Builder of institutions. Based in Dubai.",
+      },
     ],
+    links: [{ rel: "canonical", href: "https://www.melvinthomas.com/about" }],
   }),
   component: AboutPage,
 });

@@ -17,7 +17,14 @@ export const Route = createFileRoute("/blog")({
         property: "og:description",
         content: "Honest essays on building, leading and learning.",
       },
+      { property: "og:url", content: "https://www.melvinthomas.com/blog" },
+      { name: "twitter:title", content: "Insights by Melvin Thomas" },
+      {
+        name: "twitter:description",
+        content: "Honest essays on building, leading and learning.",
+      },
     ],
+    links: [{ rel: "canonical", href: "https://www.melvinthomas.com/blog" }],
   }),
   component: BlogPage,
 });
