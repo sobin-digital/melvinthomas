@@ -1,34 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ExternalLink, Bus, GraduationCap, Truck } from "lucide-react";
-import { useState } from "react";
-import { SectionHeading } from "../components/SectionHeading";
-import portrait from "../assets/melvin-portrait.jpg";
+"use client";
 
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Melvin Thomas — From Humble Beginnings to Dubai Entrepreneur" },
-      {
-        name: "description",
-        content:
-          "The story of Melvin Thomas — leadership, resilience and vision behind ventures like Concord Transport, Sanika Academy and Anchuthyckal Transport.",
-      },
-      { property: "og:title", content: "About Melvin Thomas" },
-      {
-        property: "og:description",
-        content: "Self-made entrepreneur. Builder of institutions. Based in Dubai.",
-      },
-      { property: "og:url", content: "https://www.melvinthomas.com/about" },
-      { name: "twitter:title", content: "About Melvin Thomas" },
-      {
-        name: "twitter:description",
-        content: "Self-made entrepreneur. Builder of institutions. Based in Dubai.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "https://www.melvinthomas.com/about" }],
-  }),
-  component: AboutPage,
-});
+import { useState } from "react";
+import Image from "next/image";
+import { ExternalLink, Bus, GraduationCap, Truck } from "lucide-react";
+import { SectionHeading } from "@/components/SectionHeading";
+import portrait from "@/assets/melvin-portrait.jpg";
 
 const brands = [
   {
@@ -60,7 +36,7 @@ const brands = [
   },
 ];
 
-function AboutPage() {
+export default function AboutClient() {
   const [active, setActive] = useState<string | null>(null);
 
   return (
@@ -70,13 +46,12 @@ function AboutPage() {
           <div className="relative animate-fade-up">
             <div className="absolute -inset-4 rounded-3xl bg-gradient-gold opacity-20 blur-2xl" />
             <div className="relative rounded-3xl overflow-hidden border border-primary/30">
-              <img
+              <Image
                 src={portrait}
                 alt="Melvin Thomas portrait"
                 width={600}
                 height={700}
                 className="w-full h-[500px] object-cover"
-                loading="lazy"
               />
             </div>
           </div>
@@ -117,7 +92,7 @@ function AboutPage() {
           <p>
             <span className="text-foreground font-medium">Vision is the long game.</span> Concord
             Transport is not a fleet of vehicles — it is a promise of reliability. Sanika Academy
-            is not a website — it is a child's first formula understood. Anchuthyckal is not a
+            is not a website — it is a child&apos;s first formula understood. Anchuthyckal is not a
             logistics company — it is a family name carried forward. Every venture I touch is built
             to outlast me.
           </p>
@@ -144,7 +119,8 @@ function AboutPage() {
                 onClick={() => setActive(isActive ? null : b.id)}
                 className="text-left p-8 rounded-2xl bg-card border border-border hover-lift relative overflow-hidden group"
               >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{ background: "var(--gradient-radial-gold)" }}
                 />
                 <div className="relative">

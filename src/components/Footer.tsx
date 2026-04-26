@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -18,11 +18,11 @@ export function Footer() {
           <div>
             <h4 className="text-xs uppercase tracking-[0.3em] text-primary mb-5">Navigate</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link to="/" className="hover:text-primary transition">Home</Link></li>
-              <li><Link to="/about" className="hover:text-primary transition">About</Link></li>
-              <li><Link to="/blog" className="hover:text-primary transition">Insights</Link></li>
-              <li><Link to="/contact" className="hover:text-primary transition">Contact</Link></li>
-              <li><Link to="/privacy" className="hover:text-primary transition">Privacy Policy</Link></li>
+              <li><Link href="/" className="hover:text-primary transition">Home</Link></li>
+              <li><Link href="/about" className="hover:text-primary transition">About</Link></li>
+              <li><Link href="/blog" className="hover:text-primary transition">Insights</Link></li>
+              <li><Link href="/contact" className="hover:text-primary transition">Contact</Link></li>
+              <li><Link href="/privacy" className="hover:text-primary transition">Privacy Policy</Link></li>
             </ul>
           </div>
 

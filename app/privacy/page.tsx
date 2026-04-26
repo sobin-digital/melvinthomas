@@ -1,28 +1,27 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { SectionHeading } from "../components/SectionHeading";
+import type { Metadata } from "next";
+import { SectionHeading } from "@/components/SectionHeading";
 
-export const Route = createFileRoute("/privacy")({
-  head: () => ({
-    meta: [
-      { title: "Privacy Policy — Melvin Thomas" },
-      {
-        name: "description",
-        content: "Privacy policy for the personal website of Melvin Thomas.",
-      },
-      { property: "og:title", content: "Privacy Policy — Melvin Thomas" },
-    ],
-  }),
-  component: PrivacyPage,
-});
+export const metadata: Metadata = {
+  title: "Privacy Policy — Melvin Thomas",
+  description: "Privacy policy for the personal website of Melvin Thomas.",
+  openGraph: {
+    title: "Privacy Policy — Melvin Thomas",
+  },
+};
 
-function PrivacyPage() {
+export default function PrivacyPage() {
+  const lastUpdated = new Date().toLocaleDateString("en-GB", {
+    month: "long",
+    year: "numeric",
+  });
+
   return (
     <>
       <section className="pt-32 pb-12 container-luxe">
         <SectionHeading
           eyebrow="Legal"
           title="Privacy Policy"
-          subtitle={`Last updated: ${new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}`}
+          subtitle={`Last updated: ${lastUpdated}`}
         />
       </section>
 
@@ -32,7 +31,7 @@ function PrivacyPage() {
             <h2 className="text-2xl font-display text-foreground mb-3">1. Introduction</h2>
             <p>
               This privacy policy explains how the personal website of Melvin Thomas
-              ("we", "us", "our") collects, uses and protects information you share with us through this
+              (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) collects, uses and protects information you share with us through this
               site. By using this website you agree to the practices described here.
             </p>
           </div>

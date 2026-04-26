@@ -1,4 +1,7 @@
-import { Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -10,6 +13,7 @@ const links = [
 ] as const;
 
 export function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -20,6 +24,11 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -29,7 +38,7 @@ export function Navbar() {
       }`}
     >
       <nav className="container-luxe flex items-center justify-between gap-4 h-20">
-        <Link to="/" className="flex items-center gap-2 sm:gap-3 group min-w-0 flex-shrink">
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 group min-w-0 flex-shrink">
           <span className="font-display text-xl sm:text-2xl tracking-wider whitespace-nowrap">
             <span className="text-gradient-gold">M</span>
             <span className="text-foreground">T</span>
@@ -43,10 +52,10 @@ export function Navbar() {
           {links.map((l) => (
             <li key={l.to}>
               <Link
-                to={l.to}
-                className="text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors duration-300"
-                activeProps={{ className: "text-primary" }}
-                activeOptions={{ exact: l.to === "/" }}
+                href={l.to}
+                className={`text-sm uppercase tracking-[0.2em] transition-colors duration-300 ${
+                  isActive(l.to) ? "text-primary" : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 {l.label}
               </Link>
@@ -60,7 +69,7 @@ export function Navbar() {
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-gold text-primary-foreground text-xs uppercase tracking-[0.2em] font-medium hover:shadow-gold transition-all duration-300"
         >
-          Let's Talk
+          Let&apos;s Talk
         </a>
 
         <button
@@ -78,11 +87,11 @@ export function Navbar() {
             {links.map((l) => (
               <li key={l.to}>
                 <Link
-                  to={l.to}
+                  href={l.to}
                   onClick={() => setOpen(false)}
-                  className="text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-primary"
-                  activeProps={{ className: "text-primary" }}
-                  activeOptions={{ exact: l.to === "/" }}
+                  className={`text-sm uppercase tracking-[0.2em] ${
+                    isActive(l.to) ? "text-primary" : "text-muted-foreground hover:text-primary"
+                  }`}
                 >
                   {l.label}
                 </Link>

@@ -1,60 +1,48 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, MessageCircle, Calendar, Sparkles } from "lucide-react";
-import portrait from "../assets/melvin-portrait.jpg";
-import skyline from "../assets/dubai-skyline.jpg";
-import { SectionHeading } from "../components/SectionHeading";
+import portrait from "@/assets/melvin-portrait.jpg";
+import skyline from "@/assets/dubai-skyline.jpg";
+import { SectionHeading } from "@/components/SectionHeading";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Melvin Thomas | Entrepreneur in Dubai | Transport & Education Leader" },
-      {
-        name: "description",
-        content:
-          "Melvin Thomas is a Dubai-based entrepreneur and co-founder of Concord Transport and founder of Sanika Academy, offering premium bus rental Dubai, car rental Dubai, and online tutoring Dubai services. Connect for business, partnerships, and investment opportunities.",
-      },
-      { property: "og:title", content: "Melvin Thomas | Entrepreneur & Business Leader in Dubai" },
-      {
-        property: "og:description",
-        content:
-          "Discover Melvin Thomas's journey in building successful transportation and education businesses in Dubai. Explore services, insights, and opportunities.",
-      },
-      { property: "og:image", content: "https://www.melvinthomas.com/og-image.jpg" },
-      { property: "og:url", content: "https://www.melvinthomas.com" },
-      { name: "twitter:title", content: "Melvin Thomas | Entrepreneur in Dubai" },
-      {
-        name: "twitter:description",
-        content:
-          "Dubai-based entrepreneur leading transport and education businesses. Connect for services and partnerships.",
-      },
-      { name: "twitter:image", content: "https://www.melvinthomas.com/og-image.jpg" },
-    ],
-    links: [{ rel: "canonical", href: "https://www.melvinthomas.com" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          name: "Melvin Thomas",
-          jobTitle: "Entrepreneur",
-          url: "https://www.melvinthomas.com",
-          worksFor: {
-            "@type": "Organization",
-            name: "The Concord Passengers Transporting L.L.C",
-          },
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Dubai",
-            addressCountry: "AE",
-          },
-          sameAs: ["#", "#", "#"],
-        }),
-      },
-    ],
-  }),
-  component: HomePage,
-});
+export const metadata: Metadata = {
+  title: "Melvin Thomas | Entrepreneur in Dubai | Transport & Education Leader",
+  description:
+    "Melvin Thomas is a Dubai-based entrepreneur and co-founder of Concord Transport and founder of Sanika Academy, offering premium bus rental Dubai, car rental Dubai, and online tutoring Dubai services. Connect for business, partnerships, and investment opportunities.",
+  alternates: { canonical: "https://www.melvinthomas.com" },
+  openGraph: {
+    title: "Melvin Thomas | Entrepreneur & Business Leader in Dubai",
+    description:
+      "Discover Melvin Thomas's journey in building successful transportation and education businesses in Dubai.",
+    url: "https://www.melvinthomas.com",
+    images: ["https://www.melvinthomas.com/og-image.jpg"],
+  },
+  twitter: {
+    title: "Melvin Thomas | Entrepreneur in Dubai",
+    description:
+      "Dubai-based entrepreneur leading transport and education businesses. Connect for services and partnerships.",
+    images: ["https://www.melvinthomas.com/og-image.jpg"],
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Melvin Thomas",
+  jobTitle: "Entrepreneur",
+  url: "https://www.melvinthomas.com",
+  worksFor: {
+    "@type": "Organization",
+    name: "The Concord Passengers Transporting L.L.C",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Dubai",
+    addressCountry: "AE",
+  },
+  sameAs: ["#", "#", "#"],
+};
 
 const stats = [
   { value: "15+", label: "Years Building" },
@@ -81,19 +69,26 @@ const pillars = [
   },
 ];
 
-function HomePage() {
+export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+
       {/* HERO */}
       <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-25"
-          style={{
-            backgroundImage: `url(${skyline})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+        <div className="absolute inset-0 opacity-25">
+          <Image
+            src={skyline}
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
 
         <div className="container-luxe relative grid lg:grid-cols-[1.1fr_1fr] gap-16 items-center">
@@ -122,7 +117,7 @@ function HomePage() {
                 <MessageCircle size={16} /> WhatsApp Now
               </a>
               <Link
-                to="/contact"
+                href="/contact"
                 className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-primary/40 text-primary text-xs uppercase tracking-[0.25em] font-medium hover:bg-primary/10 transition-all duration-300"
               >
                 <Calendar size={16} /> Book Consultation
@@ -130,16 +125,20 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="relative flex justify-center lg:justify-end animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <div
+            className="relative flex justify-center lg:justify-end animate-fade-up"
+            style={{ animationDelay: "0.2s" }}
+          >
             <div className="relative">
               <div className="absolute -inset-4 rounded-full bg-gradient-gold opacity-30 blur-3xl" />
               <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden ring-gold border-2 border-primary/40">
-                <img
+                <Image
                   src={portrait}
                   alt="Melvin Thomas, Dubai entrepreneur"
                   width={400}
                   height={400}
                   className="w-full h-full object-cover"
+                  priority
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 md:bottom-2 md:right-2 bg-card border border-primary/30 backdrop-blur px-5 py-3 rounded-full text-xs uppercase tracking-[0.2em]">
@@ -179,7 +178,8 @@ function HomePage() {
               key={p.title}
               className="group p-8 rounded-2xl bg-card border border-border hover-lift relative overflow-hidden"
             >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{ background: "var(--gradient-radial-gold)" }}
               />
               <div className="relative">
@@ -201,18 +201,18 @@ function HomePage() {
           <div className="relative grid md:grid-cols-[2fr_1fr] gap-8 items-center">
             <div>
               <p className="text-xs uppercase tracking-[0.4em] text-primary mb-4">
-                Let's build something
+                Let&apos;s build something
               </p>
               <h3 className="text-3xl md:text-4xl font-display leading-tight">
                 Ready to discuss a venture, partnership or investment?
               </h3>
               <p className="mt-4 text-muted-foreground max-w-xl">
-                A 30-minute conversation can change a decade. Reach out and let's see where alignment lives.
+                A 30-minute conversation can change a decade. Reach out and let&apos;s see where alignment lives.
               </p>
             </div>
             <div className="flex md:justify-end">
               <Link
-                to="/contact"
+                href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-gold text-primary-foreground text-xs uppercase tracking-[0.25em] font-medium hover:shadow-gold transition"
               >
                 Book Consultation <ArrowRight size={16} />

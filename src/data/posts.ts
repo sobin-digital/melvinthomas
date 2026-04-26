@@ -8,6 +8,8 @@ import physicsTutor from "../assets/blog/physics-tutor.jpg";
 import mathsTuition from "../assets/blog/maths-tuition.jpg";
 import frenchCourse from "../assets/blog/french-course.jpg";
 
+import type { StaticImageData } from "next/image";
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -15,7 +17,7 @@ export interface BlogPost {
   excerpt: string;
   readTime: string;
   date: string;
-  cover: string;
+  cover: StaticImageData;
   content: string[];
 }
 

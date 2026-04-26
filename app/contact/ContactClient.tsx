@@ -1,35 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
+
 import { useState } from "react";
 import { Mail, MapPin, MessageCircle, Send, Phone, Check } from "lucide-react";
-import { SectionHeading } from "../components/SectionHeading";
+import { SectionHeading } from "@/components/SectionHeading";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact Melvin Thomas — Book a Consultation in Dubai" },
-      {
-        name: "description",
-        content:
-          "Reach out to Melvin Thomas for ventures, investments or partnerships. WhatsApp +971 52 924 8514 or send a message directly.",
-      },
-      { property: "og:title", content: "Contact Melvin Thomas" },
-      {
-        property: "og:description",
-        content: "Book a consultation or message Melvin directly.",
-      },
-      { property: "og:url", content: "https://www.melvinthomas.com/contact" },
-      { name: "twitter:title", content: "Contact Melvin Thomas" },
-      {
-        name: "twitter:description",
-        content: "Book a consultation or message Melvin directly.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "https://www.melvinthomas.com/contact" }],
-  }),
-  component: ContactPage,
-});
-
-function ContactPage() {
+export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
@@ -54,10 +29,16 @@ function ContactPage() {
         <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10">
           {/* FORM */}
           <div className="p-8 md:p-10 rounded-2xl bg-card border border-border relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 opacity-30" style={{ background: "var(--gradient-radial-gold)" }} />
+            <div
+              className="absolute top-0 right-0 w-64 h-64 opacity-30"
+              style={{ background: "var(--gradient-radial-gold)" }}
+            />
             <form onSubmit={onSubmit} className="relative space-y-6">
               <div>
-                <label htmlFor="name" className="block text-xs uppercase tracking-[0.2em] text-primary mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-xs uppercase tracking-[0.2em] text-primary mb-2"
+                >
                   Your name
                 </label>
                 <input
@@ -72,7 +53,10 @@ function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-xs uppercase tracking-[0.2em] text-primary mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-xs uppercase tracking-[0.2em] text-primary mb-2"
+                >
                   Email address
                 </label>
                 <input
@@ -87,7 +71,10 @@ function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-xs uppercase tracking-[0.2em] text-primary mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-xs uppercase tracking-[0.2em] text-primary mb-2"
+                >
                   Your message
                 </label>
                 <textarea
@@ -118,7 +105,7 @@ function ContactPage() {
 
               {submitted && (
                 <p className="text-sm text-primary animate-fade-up">
-                  Thank you. I'll respond personally within 24 hours.
+                  Thank you. I&apos;ll respond personally within 24 hours.
                 </p>
               )}
             </form>
@@ -138,8 +125,12 @@ function ContactPage() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-[0.3em] text-primary mb-1">WhatsApp</p>
-                  <p className="text-lg font-display group-hover:text-primary transition">+971 52 924 8514</p>
-                  <p className="text-sm text-muted-foreground mt-1">Fastest response · 9 AM – 9 PM GST</p>
+                  <p className="text-lg font-display group-hover:text-primary transition">
+                    +971 52 924 8514
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Fastest response · 9 AM – 9 PM GST
+                  </p>
                 </div>
               </div>
             </a>
@@ -175,9 +166,13 @@ function ContactPage() {
                   <Mail className="text-primary" size={20} />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-primary mb-1">Response time</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-primary mb-1">
+                    Response time
+                  </p>
                   <p className="text-lg font-display">Within 24 hours</p>
-                  <p className="text-sm text-muted-foreground mt-1">Every message read personally</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Every message read personally
+                  </p>
                 </div>
               </div>
             </div>
