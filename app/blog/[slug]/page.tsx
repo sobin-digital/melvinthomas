@@ -28,12 +28,12 @@ export async function generateMetadata({
       title: post.title,
       description: post.excerpt,
       url: `https://www.melvinthomas.com/blog/${post.slug}`,
-      images: [typeof post.cover === "string" ? post.cover : post.cover.src],
+      images: [post.cover.src],
     },
     twitter: {
       title: post.title,
       description: post.excerpt,
-      images: [typeof post.cover === "string" ? post.cover : post.cover.src],
+      images: [post.cover.src],
     },
   };
 }
